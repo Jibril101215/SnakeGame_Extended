@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.Remoting.Messaging;
+using System.Configuration;
+using System.Globalization;
 
 namespace Snake
 {
@@ -52,16 +54,48 @@ namespace Snake
 
         public void updateFile()
         {
+            InsertionSort();
             StreamWriter scores;
             scores = File.CreateText(dataPath);
             foreach (User user in users)
             {
                 scores.WriteLine(user.name+' '+user.score);
             }
-
+            
             scores.Close();
         }
 
-        //Console.SetCursorPosition((Console.WindowWidth / 4) * 3, i);
+        public void DisplayScoreboard()
+        {
+            Console.Clear();
+            int i = 10, j = 1;
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 4, i);
+            Console.WriteLine("SCOREBOARD (TOP 5)");
+            foreach(User user in users)
+            {
+                i++;
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 5, i);
+                Console.WriteLine(j + ". " + user.name + " - " + user.score);
+                if (j++ >= 5) break;
+            }
+        }
+
+        private void InsertionSort()
+        {
+            int j;
+            User temp;
+            for (int i = 1; i < users.Count; i++)
+            {
+                temp = users[i];
+                j = i;
+                while (j > 0 && users[j-1].score < temp.score)
+                {
+                    users[j ] = users[j-1];
+                    j--;
+                }
+                users[j] = temp;
+            }
+        }
+        
     }
 }

@@ -142,7 +142,7 @@ namespace Snake
             Scoreboard scoreboard = new Scoreboard();
             scoreboard.updateScoreboard(currUser);
             scoreboard.updateFile();
-
+            scoreboard.DisplayScoreboard();
 
             if (userPoints >= 500)
             {
