@@ -137,6 +137,14 @@ namespace Snake
                 Console.WriteLine("Food disappear in: " + (10-((Environment.TickCount - food.LastFoodTime)/1000)));
                 food.Display();
 
+                //SPEED UP SNAKE AFTER POINTS REACHED 200
+                if (userPoints > 200)
+                {
+                    snake.SleepTime -= 0.05; // Increase Snake's speed
+                }
+
+
+
                 
                 snake.SleepTime -= 0.01; // Increase Snake's speed
                 
