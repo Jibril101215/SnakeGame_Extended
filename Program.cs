@@ -78,13 +78,17 @@ namespace Snake
 
                 //  GAME OVER 
                 if (snake.SnakeElements.Contains(snakeNewHead) || ObstacleList.Position.Contains(snakeNewHead))
+                {
                     if (lives == 1)
                     {
                         break;
                     }
-                    else {
+                    else
+                    {
                         lives--;
                     }
+                }
+                    
 
 
                 snake.Display();
