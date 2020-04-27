@@ -119,10 +119,12 @@ namespace Snake
                         Console.Write(" ");
                         food.UpdateFoodPosition(snake, ObstacleList, randomNumbersGenerator);
                         userPoints -= 50;
-
                     }
                 }
-
+                Console.SetCursorPosition(Console.WindowWidth / 2, 0);
+                Console.WriteLine("Food disappear in:   ");
+                Console.SetCursorPosition(Console.WindowWidth / 2, 0);
+                Console.WriteLine("Food disappear in: " + (10-((Environment.TickCount - food.LastFoodTime)/1000)));
                 food.Display();
                 snake.SleepTime -= 0.01; // Increase Snake's speed
 
