@@ -124,7 +124,12 @@ namespace Snake
                 }
 
                 food.Display();
-                snake.SleepTime -= 0.01; // Increase Snake's speed
+                //SPEED UP SNAKE AFTER POINTS REACHED 200
+                if (userPoints > 200)
+                {
+                    snake.SleepTime -= 0.05; // Increase Snake's speed
+                }
+
 
                 Thread.Sleep((int)snake.SleepTime); // Update Program's speed 
                 userPoints = Math.Max(userPoints, 0);
