@@ -58,6 +58,7 @@ namespace Snake
             get { return symbol; }
             set { symbol = value; } 
         }
+
         public ConsoleColor Color {
             get { return color; }
             set { color = value; } 
