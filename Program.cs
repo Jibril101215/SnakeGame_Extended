@@ -59,22 +59,32 @@ namespace Snake
             SoundPlayer sound = new SoundPlayer(path);
             sound.PlayLooping();
 
-
-
+            //INITIALISE AND DISPLAY SNAKE LIVES
+            int lives = snake.getSnakeLives();
+            string ss1 = "Remaining lives : {0}";
+            Console.SetCursorPosition((Console.WindowWidth - ss1.Length), 0);
+            Console.WriteLine(ss1, lives);
 
             // PROGAM STARTS HERE
             while (userPoints<500)
             {
+                Console.SetCursorPosition((Console.WindowWidth - ss1.Length), 0);
+                Console.WriteLine(ss1, lives);
                 // Update Snake's current direction when a key is pressed
                 if (Console.KeyAvailable) direction.ChangeDirection();
                 
                 // Update Snake's position
                 Position snakeNewHead = snake.UpdatePosition(direction.CurrentDirection);
-                
+
                 //  GAME OVER 
                 if (snake.SnakeElements.Contains(snakeNewHead) || ObstacleList.Position.Contains(snakeNewHead))
-                    break;
-
+                    if (lives == 1)
+                    {
+                        break;
+                    }
+                    else {
+                        lives--;
+                    }
 
 
                 snake.Display();
@@ -126,8 +136,10 @@ namespace Snake
                 Console.SetCursorPosition(Console.WindowWidth / 2, 0);
                 Console.WriteLine("Food disappear in: " + (10-((Environment.TickCount - food.LastFoodTime)/1000)));
                 food.Display();
-                snake.SleepTime -= 0.01; // Increase Snake's speed
 
+                
+                snake.SleepTime -= 0.01; // Increase Snake's speed
+                
                 Thread.Sleep((int)snake.SleepTime); // Update Program's speed 
                 userPoints = Math.Max(userPoints, 0);
                 Console.SetCursorPosition(0, 0);
@@ -159,26 +171,33 @@ namespace Snake
                 Console.ReadLine();
             } else
             {
-                string s1 = "Game over, "+currUser.name+"!";
-                string s2 = "Your points are: {0}";
-                Console.SetCursorPosition((Console.WindowWidth - s1.Length) / 2, (Console.WindowHeight - 2) / 2);
-                Console.ForegroundColor = ConsoleColor.Red;
+               
+                    string s1 = "Game over, " + currUser.name + "!";
+                    string s2 = "Your points are: {0}";
+                    Console.SetCursorPosition((Console.WindowWidth - s1.Length) / 2, (Console.WindowHeight - 2) / 2);
+                    Console.ForegroundColor = ConsoleColor.Red;
 
 
 
-                string path2 = Path.Combine(Directory.GetCurrentDirectory(), "aww.wav");
-                SoundPlayer sound2 = new SoundPlayer(path2);
-                sound2.Play();
+                    string path2 = Path.Combine(Directory.GetCurrentDirectory(), "aww.wav");
+                    SoundPlayer sound2 = new SoundPlayer(path2);
+                    sound2.Play();
 
-                Console.WriteLine(s1);
+                    Console.WriteLine(s1);
 
 
-                userPoints = Math.Max(userPoints, 0);
-                Console.SetCursorPosition((Console.WindowWidth - s2.Length) / 2, ((Console.WindowHeight) / 2));
-                Console.WriteLine(s2, userPoints);
-                Console.SetCursorPosition((Console.WindowWidth - s2.Length) / 2, ((Console.WindowHeight + 2) / 2));
-                Console.WriteLine("Press Enter to exit game");
-                Console.ReadLine();
+                    userPoints = Math.Max(userPoints, 0);
+                    Console.SetCursorPosition((Console.WindowWidth - s2.Length) / 2, ((Console.WindowHeight) / 2));
+                    Console.WriteLine(s2, userPoints);
+                    Console.SetCursorPosition((Console.WindowWidth - s2.Length) / 2, ((Console.WindowHeight + 2) / 2));
+                    Console.WriteLine("Press Enter to exit game");
+                    Console.ReadLine();
+               
+                
+                 
+                    
+                    
+                
             }
         }
 
