@@ -24,8 +24,11 @@ namespace Snake
         /// The lower the value, the faster it becomes
         /// </summary>
         private double sleepTime;
-
         
+        /// <summary>
+        /// Number of lives the snake has
+        /// </summary>
+        private int snakeLives = 4;
         
         public Snake() 
         {
@@ -86,6 +89,10 @@ namespace Snake
             if (snakeHead.col >= Console.WindowWidth) snakeHead.col = 0;
 
             return snakeHead;
+        }
+
+        public int getSnakeLives() {
+            return snakeLives;
         }
 
         public override void Display()

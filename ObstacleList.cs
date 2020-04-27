@@ -40,6 +40,7 @@ namespace Snake
             {
                 newObstacle.Pos = new Position(rand.Next(0, Console.WindowHeight),
                     rand.Next(0, Console.WindowWidth));
+
             }
             while (snake.SnakeElements.Contains(newObstacle.Pos) ||
                         _positions.Contains(newObstacle.Pos) ||
