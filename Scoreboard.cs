@@ -25,9 +25,11 @@ namespace Snake
                 foreach (string line in lines)
                 {
                     string[] newLine = line.Split(' ');
-                    users.Add(new User(newLine[0], Int32.Parse(newLine[1])));
+                    int score  = Int32.Parse(newLine[newLine.Length - 1]);
+                    newLine = newLine.Take(newLine.Count() - 1).ToArray();
+                    string name = string.Join(" ", newLine);
+                    users.Add(new User(name, score));
                 }
-               
             } else
             {
                 StreamWriter score = File.CreateText(dataPath);
