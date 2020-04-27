@@ -93,9 +93,9 @@ namespace Snake
                 if (snakeNewHead == food.Pos)
                 {
                     // Reposition Food after eaten
+                  
                     food.UpdateFoodPosition(snake, ObstacleList, randomNumbersGenerator);
-
-                    userPoints += 100;
+                    userPoints += food.GetFoodPoints;
 
                     // Randomly place new obstacle
                     ObstacleList.PositionNewObstacle(snake, food, randomNumbersGenerator);
