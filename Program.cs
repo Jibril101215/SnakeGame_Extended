@@ -203,12 +203,6 @@ namespace Snake
                     Console.SetCursorPosition((Console.WindowWidth - s2.Length) / 2, ((Console.WindowHeight + 2) / 2));
                     Console.WriteLine("Press Enter to exit game");
                     Console.ReadLine();
-               
-                
-                 
-                    
-                    
-                
             }
         }
 

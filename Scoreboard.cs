@@ -70,13 +70,13 @@ namespace Snake
         public void DisplayScoreboard()
         {
             Console.Clear();
-            int i = 10, j = 1;
-            Console.SetCursorPosition((Console.WindowWidth / 2) - 4, i);
+            int i = ((Console.WindowHeight) / 2) - 3, j = 1;
+            Console.SetCursorPosition(2, i);
             Console.WriteLine("SCOREBOARD (TOP 5)");
             foreach(User user in users)
             {
                 i++;
-                Console.SetCursorPosition((Console.WindowWidth / 2) - 5, i);
+                Console.SetCursorPosition(3, i);
                 Console.WriteLine(j + ". " + user.name + " - " + user.score);
                 if (j++ >= 5) break;
             }
