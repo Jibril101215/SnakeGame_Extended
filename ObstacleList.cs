@@ -38,8 +38,8 @@ namespace Snake
 
             do
             {
-                newObstacle.Pos = new Position(rand.Next(1, Console.WindowHeight),
-                    rand.Next(0, Console.WindowWidth));
+                newObstacle.Pos = new Position(rand.Next(2, Console.WindowHeight-3),
+                    rand.Next(2, Console.WindowWidth-3));
 
             }
             while (snake.SnakeElements.Contains(newObstacle.Pos) ||
