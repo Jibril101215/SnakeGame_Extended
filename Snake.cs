@@ -39,7 +39,7 @@ namespace Snake
             snakeElements = new Queue<Position>();
             for (int i = 0; i < size; i++)
             {
-                snakeElements.Enqueue(new Position(1, i));
+                snakeElements.Enqueue(new Position(2, i+1));
                 Display();
             }
 
@@ -83,10 +83,10 @@ namespace Snake
             snakeHead.col += pos.col;
 
             // reposition the snake when it goes beyond the screen
-            if (snakeHead.col < 0) snakeHead.col = Console.WindowWidth - 1;   //going beyond left, appear on the right side
-            if (snakeHead.row < 1) snakeHead.row = Console.WindowHeight - 1; //going up, appear from the bottom
-            if (snakeHead.row >= Console.WindowHeight) snakeHead.row = 0;   //going down, appear from the top 
-            if (snakeHead.col >= Console.WindowWidth) snakeHead.col = 0;   //going beyond right, appear from the left
+            if (snakeHead.col < 1) snakeHead.col = Console.WindowWidth - 3;   //going beyond left, appear on the right side
+            if (snakeHead.row < 2) snakeHead.row = Console.WindowHeight - 3; //going up, appear from the bottom
+            if (snakeHead.row >= Console.WindowHeight-2) snakeHead.row = 3;   //going down, appear from the top 
+            if (snakeHead.col >= Console.WindowWidth-2) snakeHead.col = 2;   //going beyond right, appear from the left
 
             return snakeHead;
         }

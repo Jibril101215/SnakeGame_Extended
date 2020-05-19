@@ -16,7 +16,6 @@ namespace Snake
         public Food()
         {
             lastFoodTime = Environment.TickCount;
-            symbol = "@";
             color = ConsoleColor.Yellow;
             foodTypes = FoodType.bigfood;
             foodPoint = 50;
@@ -47,6 +46,8 @@ namespace Snake
         {
             Random r = new Random();
             ChangeFoodType((FoodType)r.Next(0,3));
+            Console.SetCursorPosition(Pos.col, Pos.row);
+            Console.WriteLine("  ");
             do
             {
                 this.Pos = new Position(rand.Next(1, Console.WindowHeight),
@@ -67,17 +68,17 @@ namespace Snake
         {
             if (food==FoodType.smallfood)
             {
-                symbol = "#";
+                symbol = "\u2663\u2663";
                 foodPoint = 10;
             }
             else if (food==FoodType.mediumfood)
             {
-                symbol = "&";
+                symbol = "\u2666\u2666";
                 foodPoint = 20;
             }
             else
             {
-                symbol = "@";
+                symbol = "\u2665\u2665";
                 foodPoint = 50;
             }
         }

@@ -69,6 +69,7 @@ namespace Snake
         /// </summary>
         public virtual void Display()
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.ForegroundColor = color;
             Console.SetCursorPosition(position.col, position.row);
             Console.Write(symbol);
