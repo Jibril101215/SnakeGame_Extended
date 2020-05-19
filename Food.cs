@@ -49,7 +49,7 @@ namespace Snake
             ChangeFoodType((FoodType)r.Next(0,3));
             do
             {
-                this.Pos = new Position(rand.Next(0, Console.WindowHeight),
+                this.Pos = new Position(rand.Next(1, Console.WindowHeight),
                     rand.Next(0, Console.WindowWidth));
             }
             while (snake.SnakeElements.Contains(this.Pos) || ObstacleList.Position.Contains(this.Pos));
