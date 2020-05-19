@@ -17,6 +17,7 @@ namespace Snake
         {
             Random randomNumbersGenerator = new Random(); // RANDOM NUMBER
             Console.BufferHeight = Console.WindowHeight;
+            Console.CursorVisible = false;
 
             // USER MANAGEMENT SYSTEM
             Console.WriteLine("Enter username: ");

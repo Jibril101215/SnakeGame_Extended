@@ -56,7 +56,7 @@ namespace Snake
         /// </summary>
         public void ChangeDirection()
         {
-            ConsoleKeyInfo userInput = Console.ReadKey();
+            ConsoleKeyInfo userInput = Console.ReadKey(true);
             if (userInput.Key == ConsoleKey.LeftArrow)
             {
                 if (direction != Arrow.right) direction = Arrow.left;
