@@ -38,7 +38,7 @@ namespace Snake
 
             do
             {
-                newObstacle.Pos = new Position(rand.Next(0, Console.WindowHeight),
+                newObstacle.Pos = new Position(rand.Next(1, Console.WindowHeight),
                     rand.Next(0, Console.WindowWidth));
 
             }
