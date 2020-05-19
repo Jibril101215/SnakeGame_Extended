@@ -19,17 +19,41 @@ namespace Snake
             Console.BufferHeight = Console.WindowHeight;
             Console.CursorVisible = false;
 
+
+            
+
             // USER MANAGEMENT SYSTEM
             Console.WriteLine("Enter username: ");
             User currUser = new User(Console.ReadLine());
             Console.Clear();
+
+
 
             // BEFORE INSTANTIATING GAME OBJECTS
             Console.SetCursorPosition(0, 0);
             Console.WriteLine("Hello, "+currUser.name+"! Press ENTER to start");
             Console.ReadLine();
             Console.Clear();
+            
+            for (int i = 0; i < Console.WindowWidth; i++)
+            {
+                Console.SetCursorPosition(i, 2);
+                Console.Write("\u2592");
+                Console.SetCursorPosition(i, Console.WindowHeight-1);
+                Console.Write("\u2592");
+                
+            }
 
+
+            for (int j = 1; j < Console.WindowHeight-1; j++)
+            {
+                Console.SetCursorPosition(0, j);
+                Console.Write("\u2592");
+                Console.SetCursorPosition(Console.WindowWidth-1, j);
+                Console.Write("\u2592");
+            }
+
+            
             // INITIALISE & DISPLAY 5 OBSTACLES
             // added to ObstacleList list
             ObstacleList ObstacleList = new ObstacleList();
