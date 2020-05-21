@@ -1,2 +1,2 @@
 # SnakeGame_Extended
-Week 6 Implementation of Extension Ideas
+Week 15 Implementation of Extension Ideas
