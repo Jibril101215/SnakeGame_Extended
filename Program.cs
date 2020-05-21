@@ -35,6 +35,7 @@ namespace Snake
             Console.ReadLine();
             Console.Clear();
             
+            //FOR WALL DETAILS - HEIGHT
             for (int i = 0; i < Console.WindowWidth; i++)
             {
                 Console.SetCursorPosition(i, 2);
@@ -44,7 +45,7 @@ namespace Snake
                 
             }
 
-
+            //FOR WALL DETAILS - WIDTH
             for (int j = 1; j < Console.WindowHeight-1; j++)
             {
                 Console.SetCursorPosition(0, j);
@@ -59,7 +60,7 @@ namespace Snake
             ObstacleList ObstacleList = new ObstacleList();
             for(int i = 0; i < 5; i++) 
             {
-                ObstacleList.AddObstacle(new Obstacle(new Position(randomNumbersGenerator.Next(5, Console.WindowHeight), randomNumbersGenerator.Next(5, Console.WindowWidth))));
+                ObstacleList.AddObstacle(new Obstacle(new Position(randomNumbersGenerator.Next(5, Console.WindowHeight-4), randomNumbersGenerator.Next(5, Console.WindowWidth-3))));
             }
             foreach (Obstacle ob in ObstacleList.Obstacles) { ob.Display(); } // Dislay Obstacles
 
@@ -174,8 +175,6 @@ namespace Snake
                 {
                     snake.SleepTime -= 0.05; // Increase Snake's speed
                 }
-
-
 
                 
                 snake.SleepTime -= 0.01; // Increase Snake's speed

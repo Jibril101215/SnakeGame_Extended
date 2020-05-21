@@ -50,8 +50,8 @@ namespace Snake
             Console.WriteLine("  ");
             do
             {
-                this.Pos = new Position(rand.Next(1, Console.WindowHeight),
-                    rand.Next(0, Console.WindowWidth));
+                this.Pos = new Position(rand.Next(2, Console.WindowHeight-4),
+                    rand.Next(3, Console.WindowWidth-3));
             }
             while (snake.SnakeElements.Contains(this.Pos) || ObstacleList.Position.Contains(this.Pos));
 
