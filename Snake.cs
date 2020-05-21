@@ -33,7 +33,7 @@ namespace Snake
         public Snake() 
         {
             sleepTime = 100;
-            symbol = "*";
+            symbol = "O";
             color = ConsoleColor.DarkGray;
             size = 4;
             snakeElements = new Queue<Position>();
@@ -42,7 +42,6 @@ namespace Snake
                 snakeElements.Enqueue(new Position(2, i+1));
                 Display();
             }
-
         }
 
         /// <summary>
