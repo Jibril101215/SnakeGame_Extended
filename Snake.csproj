@@ -45,6 +45,7 @@
     <Compile Include="Directions.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="FoodType.cs" />
+    <Compile Include="MainMenu.cs" />
     <Compile Include="Obstacle.cs" />
     <Compile Include="ObstacleList.cs" />
     <Compile Include="Position.cs" />
