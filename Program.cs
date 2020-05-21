@@ -85,16 +85,16 @@ namespace Snake
             sound.PlayLooping();
 
             //INITIALISE AND DISPLAY SNAKE LIVES
+            string heartSymbol = "\u2660"; 
             int lives = snake.getSnakeLives();
-            string ss1 = "Remaining lives : {0}";
-            Console.SetCursorPosition((Console.WindowWidth - ss1.Length), 0);
-            Console.WriteLine(ss1, lives);
+            string ss1 = "HP : " + String.Concat(Enumerable.Repeat(heartSymbol, lives)) ;
+            Console.SetCursorPosition((Console.WindowWidth - 10 ), 0);
+            Console.WriteLine(ss1 );
 
             // PROGAM STARTS HERE
             while (userPoints<500)
             {
-                Console.SetCursorPosition((Console.WindowWidth - ss1.Length), 0);
-                Console.WriteLine(ss1, lives);
+               
                 // Update Snake's current direction when a key is pressed
                 if (Console.KeyAvailable) direction.ChangeDirection();
                 
@@ -113,7 +113,11 @@ namespace Snake
                         lives--;
                     }
                 }
-                    
+                Console.SetCursorPosition((Console.WindowWidth - 10), 0);
+                Console.WriteLine("          ");
+                Console.SetCursorPosition((Console.WindowWidth - 10), 0);
+                ss1 = "HP : " + String.Concat(Enumerable.Repeat(heartSymbol, lives) ) ;
+                Console.WriteLine(ss1);
 
 
                 snake.Display();
